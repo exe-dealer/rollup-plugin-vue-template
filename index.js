@@ -1,6 +1,6 @@
 const { createFilter } = require('rollup-pluginutils');
-const compiler = rquire('vue-template-compiler');
-const transpileVueTemplate = rquire('vue-template-es2015-compiler');
+const compiler = require('vue-template-compiler');
+const transpileVueTemplate = require('vue-template-es2015-compiler');
 
 function toFunction (code) {
   return `function(){${code}}`;
