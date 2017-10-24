@@ -1,12 +1,12 @@
-# rollup-plugin-vue-template-compiler
+# rollup-plugin-vue-template
 
 Rollup plugin to compile Vue.js 2.0 templates.
 
-`npm i rollup-plugin-vue-template-compiler --save-dev`
+`npm i rollup-plugin-vue-template --save-dev`
 
 ### Sample rollup config
 ```javascript
-import vueTemplateCompiler from 'rollup-plugin-vue-template-compiler';
+import vueTemplateCompiler from 'rollup-plugin-vue-template';
 import buble from 'rollup-plugin-buble';
 
 export default {

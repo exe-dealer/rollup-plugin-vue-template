@@ -1,29 +1,29 @@
-import { createFilter } from 'rollup-pluginutils';
-import compiler from 'vue-template-compiler';
-import transpileVueTemplate from 'vue-template-es2015-compiler';
+const { createFilter } = require('rollup-pluginutils');
+const compiler = rquire('vue-template-compiler');
+const transpileVueTemplate = rquire('vue-template-es2015-compiler');
 
 function toFunction (code) {
-  return `function(){${code}}`
+  return `function(){${code}}`;
 }
 
-export default function string(opts = {}) {
-	if (!opts.include) {
-		throw Error('include option should be specified');
-	}
-	
-	const filter = createFilter(opts.include, opts.exclude);
+module.exports = function vueTemplate(opts = {}) {
+  if (!opts.include) {
+    throw Error('include option should be specified');
+  }
+  
+  const filter = createFilter(opts.include, opts.exclude);
 
-	return {
-		name: 'vue-template-compiler',
+  return {
+    name: 'vue-template',
 
-		transform(code, id) {
-			if (filter(id)) {
-				const compiled = compiler.compile(code);
-				return {
-					code: transpileVueTemplate(`module.exports={render:${toFunction(compiled.render)},staticRenderFns:[${compiled.staticRenderFns.map(toFunction).join(',')}]}`).replace('module.exports={', 'export default {'),
-					map: { mappings: '' }
-				};
-			}
-		}
-	};
-}
+    transform(code, id) {
+      if (filter(id)) {
+        const compiled = compiler.compile(code);
+        return {
+          code: transpileVueTemplate(`module.exports={render:${toFunction(compiled.render)},staticRenderFns:[${compiled.staticRenderFns.map(toFunction).join(',')}]}`).replace('module.exports=', 'export default '),
+          map: { mappings: '' }
+        };
+      }
+    },
+  };
+};
