@@ -20,7 +20,7 @@ module.exports = function vueTemplate(opts = {}) {
       if (filter(id)) {
         const compiled = compiler.compile(code);
         return {
-          code: transpileVueTemplate(`module.exports={render:${toFunction(compiled.render)},staticRenderFns:[${compiled.staticRenderFns.map(toFunction).join(',')}]}`).replace('module.exports=', 'export default '),
+          code: transpileVueTemplate(`module.exports={render:${toFunction(compiled.render)},staticRenderFns:[${compiled.staticRenderFns.map(toFunction).join(',')}]}`, opts.buble).replace('module.exports=', 'export default '),
           map: { mappings: '' }
         };
       }
