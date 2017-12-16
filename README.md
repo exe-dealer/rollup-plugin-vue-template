@@ -6,7 +6,7 @@ Rollup plugin to compile Vue.js 2.0 templates.
 
 ### Sample rollup config
 ```javascript
-import vueTemplateCompiler from 'rollup-plugin-vue-template';
+import vueTemplate from 'rollup-plugin-vue-template';
 import buble from 'rollup-plugin-buble';
 
 export default {
@@ -14,9 +14,7 @@ export default {
   dest: 'dist/app.js',
   format: 'umd',
   plugins: [
-    vueTemplateCompiler({
-      include: '**/*.html'
-    }),
+    vueTemplate(),
     buble()
   ]
 };

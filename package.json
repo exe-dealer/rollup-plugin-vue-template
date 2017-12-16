@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-vue-template",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,6 @@
   "homepage": "https://github.com/exedealer/rollup-plugin-vue-template#readme",
   "dependencies": {
     "vue-template-compiler": "^2.5.2",
-    "rollup-pluginutils": "^2.0.1",
     "vue-template-es2015-compiler": "^1.6.0"
   }
 }
